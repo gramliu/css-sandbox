@@ -1,4 +1,4 @@
-*, *::before, *::after {
+.body *, .body *::before, .body *::after {
   padding: 0;
   margin: 0 auto;
   box-sizing: border-box;
@@ -8,10 +8,10 @@ $size: 50px;
 $speed: 4s;
 
 $clr1: #0ff;
-$clr2: #f0f;
+$clr2: #0f0;
 $clr3: #ff0;
 
-body {
+.body {
   background-color: #000;
   color: #fff;
   min-height: 100vh;
