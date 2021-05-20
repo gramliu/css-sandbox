@@ -1,3 +1,4 @@
 # CSS Sandbox
 
-Repository for experimenting with different CSS effects
+Repository for interesting CSS effects I stumbled upon as well as 
+my own personal CSS experiments
