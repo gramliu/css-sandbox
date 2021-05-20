@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "build": "sass gallery/css/*.scss gallery/css/*.css"
+    "build": "sass --update gallery/scss:gallery/css"
   },
   "author": "",
   "license": "ISC"
