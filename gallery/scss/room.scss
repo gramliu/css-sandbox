@@ -1,0 +1,58 @@
+:root {
+  --wall-color: #fffde7;
+  --wall-color-dark: #8ef180;
+  --wall-size: 10em;
+}
+
+.body {
+  background-color: #000;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 50px;
+  perspective: calc(4 * var(--wall-size));
+  perspective-origin: 50% 30%;
+}
+
+.room {
+  position: relative;
+  top: -5em;
+  left: -5em;
+}
+
+#walls-container {
+  position: relative;
+  transform-style: preserve-3d;
+}
+
+#walls {
+  height: var(--wall-size);
+  width: var(--wall-size);
+  position: absolute;
+
+  .surface {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: var(--wall-color);
+    transform-style: preserve-3d;
+    box-shadow: 0 0 0.5em #000c inset;
+  }
+  
+  #left-wall {
+    transform-origin: left;
+    transform: translateX(calc(-0.207107 * var(--wall-size))) rotateY(45deg);
+    background-color: var(--wall-color-dark);
+  }
+  
+  #right-wall {
+    transform-origin: right;
+    transform: translateX(calc(0.207107 * var(--wall-size))) rotateY(-45deg);
+  }
+
+  #floor {
+    transform: rotateX(90deg) rotateZ(45deg) translateZ(calc(var(--wall-size) * -0.5));
+  }
+
+}
