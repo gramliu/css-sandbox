@@ -49,6 +49,10 @@
     background: url("../assets/torch/flame.svg");
     background-size: cover; }
 
+#stick .face {
+  background: url("../assets/torch/stick.svg");
+  background-size: cover; }
+
 #flame-container {
   z-index: 1; }
 
