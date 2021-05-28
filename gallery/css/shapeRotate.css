@@ -86,15 +86,19 @@
   .pentahedron #penta1 {
     transform: translateZ(1em); }
   .pentahedron #penta2 {
-    transform: translateX(0em) translateZ(0.5em) rotateY(-60deg); }
-  .pentahedron #penta3 {
+    transform-origin: left;
     transform: translateZ(1em) rotateY(60deg); }
+  .pentahedron #penta3 {
+    transform-origin: right;
+    transform: translateZ(1em) rotateY(-60deg); }
   .pentahedron .top {
     transform: translateY(-50%) rotateX(90deg);
     box-shadow: 0 0 0.5em #000a inset; }
   .pentahedron .bottom {
-    bottom: 0;
-    transform: translateY(50%) rotateX(-90deg);
-    box-shadow: 0 0 0.5em #000a inset; }
+    bottom: 1em;
+    border-left: 1em solid transparent;
+    border-right: 1em solid transparent;
+    border-bottom: 1em solid var(--box-color);
+    transform: translateY(100%) rotateX(90deg); }
 
 /*# sourceMappingURL=shapeRotate.css.map */
