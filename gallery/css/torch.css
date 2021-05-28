@@ -1,7 +1,9 @@
 :root {
-  --flame-color: #FFD600FF;
-  --stick-color: #7B6240FF;
-  --rotate-speed: 10s; }
+  --flame-color: #ffd600ff;
+  --stick-color: #7b6240ff;
+  --rotate-speed: 10s;
+  --particle-size: 0.3em;
+  --particle-speed: 2s; }
 
 .body {
   background-color: #000;
@@ -41,21 +43,6 @@
   align-items: center;
   justify-content: center; }
 
-#flame {
-  top: -4em;
-  width: 2em;
-  height: 2em; }
-  #flame .face {
-    background: url("../assets/torch/flame.svg");
-    background-size: cover; }
-
-#stick .face {
-  background: url("../assets/torch/stick.svg");
-  background-size: cover; }
-
-#flame-container {
-  z-index: 1; }
-
 .shape {
   width: 2em;
   height: 8em;
@@ -76,7 +63,8 @@
     transform: rotateY(180deg) translateZ(1em); }
   .shape .cube4 {
     transform: rotateY(90deg) translateZ(1em); }
-  .shape .top, .shape .bottom {
+  .shape .top,
+  .shape .bottom {
     height: 2em;
     width: 2em; }
   .shape .top {
@@ -86,5 +74,79 @@
     bottom: 0;
     transform: translateY(50%) rotateX(-90deg);
     box-shadow: 0 0 0.5em #000a inset; }
+
+#stick .face {
+  background: url("../assets/torch/stick.svg");
+  background-size: cover; }
+
+#flame-container {
+  z-index: 1; }
+
+#flame {
+  top: -4em;
+  width: 2em;
+  height: 2em; }
+  #flame .face {
+    background: url("../assets/torch/flame.svg");
+    background-size: cover;
+    z-index: 1; }
+  #flame .top {
+    z-index: -2; }
+
+.particles {
+  width: 100%;
+  height: 100%; }
+
+.particle {
+  height: var(--particle-size);
+  width: var(--particle-size);
+  position: absolute;
+  top: var(--particle-size);
+  background-color: #212121; }
+
+.particle1 {
+  animation: particle1Animate var(--particle-speed) infinite ease-in; }
+@keyframes particle1Animate {
+  0% {
+    transform: translateY(0em);
+    opacity: 0; }
+  30% {
+    opacity: 1; }
+  80% {
+    opacity: 0.5; }
+  100% {
+    transform: translateY(-2em);
+    opacity: 0; } }
+.particle2 {
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  animation: particle2Animate calc(0.5 * var(--particle-speed)) infinite ease-in; }
+@keyframes particle2Animate {
+  0% {
+    transform: translateY(0em);
+    opacity: 0; }
+  30% {
+    opacity: 1; }
+  80% {
+    opacity: 0.5; }
+  100% {
+    transform: translateY(-1.5em);
+    opacity: 0; } }
+.particle3 {
+  right: 0;
+  animation: particle2Animate calc(1.2 * var(--particle-speed)) infinite ease-in; }
+@keyframes particle3Animate {
+  0% {
+    transform: translateY(0em);
+    opacity: 0; }
+  30% {
+    opacity: 1; }
+  80% {
+    opacity: 0.5; }
+  100% {
+    transform: translateY(-3em);
+    opacity: 0; } }
 
 /*# sourceMappingURL=torch.css.map */

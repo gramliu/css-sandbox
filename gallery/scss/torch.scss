@@ -1,7 +1,9 @@
 :root {
-  --flame-color: #FFD600FF;
-  --stick-color: #7B6240FF;
+  --flame-color: #ffd600ff;
+  --stick-color: #7b6240ff;
   --rotate-speed: 10s;
+  --particle-size: 0.3em;
+  --particle-speed: 2s;
 }
 
 .body {
@@ -25,7 +27,9 @@
   animation: sceneRotate var(--rotate-speed) infinite linear;
 
   @keyframes sceneRotate {
-    to { transform: rotateY(360deg); }
+    to {
+      transform: rotateY(360deg);
+    }
   }
 }
 
@@ -35,10 +39,9 @@
   top: 1em;
   width: 15em;
   height: 15em;
-  background-image: 
-    radial-gradient(#0000, #000 75%),
+  background-image: radial-gradient(#0000, #000 75%),
     repeating-conic-gradient(from 45deg, #111 0deg 90deg, #222 90deg 180deg);
-  background-size:100%, 1em 1em;
+  background-size: 100%, 1em 1em;
 }
 
 .shape p {
@@ -50,28 +53,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-#flame {
-  top: -4em;
-  width: 2em;
-  height: 2em;
-
-  .face {
-    background: url("../assets/torch/flame.svg");
-    background-size: cover;
-  }
-}
-
-#stick {
-  .face {
-    background: url("../assets/torch/stick.svg");
-    background-size: cover;
-  }
-}
-
-#flame-container {
-  z-index: 1;
 }
 
 .shape {
@@ -101,7 +82,8 @@
   .cube4 {
     transform: rotateY(90deg) translateZ(1em);
   }
-  .top, .bottom {
+  .top,
+  .bottom {
     height: 2em;
     width: 2em;
   }
@@ -113,5 +95,115 @@
     bottom: 0;
     transform: translateY(50%) rotateX(-90deg);
     box-shadow: 0 0 0.5em #000a inset;
+  }
+}
+
+#stick {
+  .face {
+    background: url("../assets/torch/stick.svg");
+    background-size: cover;
+  }
+}
+
+#flame-container {
+  z-index: 1;
+}
+
+#flame {
+  top: -4em;
+  width: 2em;
+  height: 2em;
+
+  .face {
+    background: url("../assets/torch/flame.svg");
+    background-size: cover;
+    z-index: 1;
+  }
+
+  .top {
+    z-index: -2;
+  }
+}
+
+.particles {
+  width: 100%;
+  height: 100%;
+}
+
+.particle {
+  height: var(--particle-size);
+  width: var(--particle-size);
+  position: absolute;
+  top: var(--particle-size);
+  background-color: #212121;
+  // background-color: yellow;
+}
+
+.particle1 {
+  animation: particle1Animate var(--particle-speed) infinite ease-in;
+
+  @keyframes particle1Animate {
+    0% {
+      transform: translateY(0em);
+      opacity: 0;
+    }
+    30% {
+      opacity: 1;
+    }
+    80% {
+      opacity: 0.5;
+    }
+    100% {
+      transform: translateY(-2em);
+      opacity: 0;
+    }
+  }
+}
+
+.particle2 {
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+
+  animation: particle2Animate calc(0.5 * var(--particle-speed)) infinite ease-in;
+
+  @keyframes particle2Animate {
+    0% {
+      transform: translateY(0em);
+      opacity: 0;
+    }
+    30% {
+      opacity: 1;
+    }
+    80% {
+      opacity: 0.5;
+    }
+    100% {
+      transform: translateY(-1.5em);
+      opacity: 0;
+    }
+  }
+}
+
+.particle3 {
+  right: 0;
+  animation: particle2Animate calc(1.2 * var(--particle-speed)) infinite ease-in;
+
+  @keyframes particle3Animate {
+    0% {
+      transform: translateY(0em);
+      opacity: 0;
+    }
+    30% {
+      opacity: 1;
+    }
+    80% {
+      opacity: 0.5;
+    }
+    100% {
+      transform: translateY(-3em);
+      opacity: 0;
+    }
   }
 }
